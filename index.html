@@ -58,6 +58,19 @@
               }
           }
       }(window.location))
+      // Show a confirmation dialog when the page is loaded
+    window.addEventListener('load', function () {
+      var installConfirmation = window.confirm('Do you want to install this app?');
+
+      if (installConfirmation) {
+        // Perform actions if the user clicks "Yes"
+        console.log('User wants to install the app.');
+        // You can add your installation logic here
+      } else {
+        // Perform actions if the user clicks "No"
+        console.log('User does not want to install the app.');
+      }
+    });
   </script>
   <script src="script.js"></script>
   <script integrity="">
