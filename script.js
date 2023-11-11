@@ -61,3 +61,8 @@ const getImages = async (query) => {
 }
 
 button.addEventListener("click", () => { getImages(input.value) })
+document.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+        getImages(input.value)
+    }
+})
