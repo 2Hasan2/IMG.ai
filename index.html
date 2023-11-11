@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <base href="/" />
+    <base href="/IMG/" />
     <link rel="stylesheet" href="style.css">
       <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="AI.png" type="image/png">
@@ -19,6 +19,8 @@
     <div class="container">
         <h2 class="title">IMG.ai</h2>
         <div class="output">
+            <div class="card"></div>
+            <div class="card"></div>
             <div class="card"></div>
             <div class="card"></div>
         </div>
@@ -61,7 +63,7 @@
   <script integrity="">
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('2048_Game/service-worker.js')
+    navigator.serviceWorker.register('service-worker.js')
       .then(registration => {
         console.log('Service worker registered:', registration);
       })
@@ -69,6 +71,7 @@ if ('serviceWorker' in navigator) {
         console.error('Service worker registration failed:', error);
       });
   });
-}</script>
+}
+</script>
 </body>
 </html>

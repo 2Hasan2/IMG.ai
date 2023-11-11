@@ -39,8 +39,8 @@ const getImages = async (query) => {
         },
         body: JSON.stringify({
             "prompt": `${query}`,
-            "n": 2,
-            "size": "256x256",
+            "n": 4,
+            "size": "1024x1024",
         })
     }
     try {
