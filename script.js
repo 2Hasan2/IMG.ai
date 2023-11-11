@@ -18,6 +18,11 @@ document.addEventListener("keydown", (e) => {
         location.reload()
     }
 })
+// 
+reset.addEventListener("click", () => {
+    localStorage.removeItem("api-key")
+    location.reload()
+})
 
 const API_KEY = GET_API_KEY();
 

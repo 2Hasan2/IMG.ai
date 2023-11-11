@@ -199,3 +199,13 @@ body {
     /* animation */
     animation: animate 50s linear infinite;
 }
+
+code {
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0.2rem 0.1rem;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #0bfefe;
+}
