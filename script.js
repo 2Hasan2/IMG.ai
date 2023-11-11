@@ -13,10 +13,6 @@ const GET_API_KEY = () => {
 const API_KEY = GET_API_KEY();
 
 
-
-// const API_KEY = "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"
-
-
 const input = document.querySelector(".input")
 const button = document.querySelector(".input-btn")
 const cards = document.querySelectorAll(".card")
