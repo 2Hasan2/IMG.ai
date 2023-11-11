@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <base href="/IMG/" /> -->
     <link rel="stylesheet" href="style.css">
-      <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="AI.png" type="image/png">
-  <link rel="apple-touch-icon" sizes="192x192" href="AI.png" integrity="" />
-   <meta name="viewport" content="width=device-width" />
-  <meta property="og:image" content="AI.png"  integrity="">
-  <meta property="og:description" content='IMG.ai' />
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="AI.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="192x192" href="AI.png" integrity="" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content="AI.png"  integrity="">
+    <meta property="og:description" content='IMG.ai' />
     <title>IMG.ai</title>
     <style>
 
@@ -30,18 +29,7 @@
             click on ctrl + c to add now api key
         </p>
     </div>
-      <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafrex/spa-github-pages
-      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-      // ----------------------------------------------------------------------
-      // This script checks to see if a redirect is present in the query string
-      // and converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
+    <script type="text/javascript">
       (function (l) {
           if (l.search) {
               var q = {};
@@ -58,41 +46,6 @@
               }
           }
       }(window.location))
-      // Show a confirmation dialog when the page is loaded
-    window.addEventListener('load', function () {
-      var installConfirmation = window.confirm('Do you want to install this app?');
-
-      if (installConfirmation) {
-        // Check if the browser supports the beforeinstallprompt event
-        if ('BeforeInstallPromptEvent' in window) {
-          window.addEventListener('beforeinstallprompt', function (event) {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
-            event.preventDefault();
-
-            // Stash the event so it can be triggered later
-            var deferredPrompt = event;
-
-            // Simulate the user clicking the install button
-            // You can replace this with your own UI for installation
-            deferredPrompt.prompt();
-
-            // Wait for the user to respond to the prompt
-            deferredPrompt.userChoice.then(function (choiceResult) {
-              if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-              } else {
-                console.log('User dismissed the A2HS prompt');
-              }
-
-              // Clear the deferred prompt variable
-              deferredPrompt = null;
-            });
-          });
-        }
-      } else {
-        console.log('User does not want to install the app.');
-      }
-    });
   </script>
   <script src="script.js"></script>
   <script integrity="">
@@ -105,8 +58,8 @@ if ('serviceWorker' in navigator) {
       .catch(error => {
         console.error('Service worker registration failed:', error);
       });
-  });
-}
+  })
+  }
 </script>
 </body>
 </html>
