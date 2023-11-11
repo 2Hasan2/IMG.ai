@@ -10,6 +10,15 @@ const GET_API_KEY = () => {
         return key
     }
 }
+
+// if user click in ctrl + n then remove api key from local storage
+document.addEventListener("keydown", (e) => {
+    if (e.key == "c" && e.ctrlKey) {
+        localStorage.removeItem("api-key")
+        location.reload()
+    }
+})
+
 const API_KEY = GET_API_KEY();
 
 
@@ -36,7 +45,6 @@ const getImages = async (query) => {
     }
     try {
         input.value = "";
-        // loader animation
         cards.forEach((card) => {
             card.innerHTML = `<div class="loader"></div>`
         })
@@ -44,8 +52,6 @@ const getImages = async (query) => {
         const res = await fetch(`https://api.openai.com/v1/images/generations`, options);
         const data = await res.json();
         const imgs = data.data;
-        console.log(imgs);
-
         cards.forEach((card, index) => {
             card.innerHTML = `<img src="${imgs[index].url}" alt="${query}">`
         })
