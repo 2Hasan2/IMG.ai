@@ -63,11 +63,33 @@
       var installConfirmation = window.confirm('Do you want to install this app?');
 
       if (installConfirmation) {
-        // Perform actions if the user clicks "Yes"
-        console.log('User wants to install the app.');
-        // You can add your installation logic here
+        // Check if the browser supports the beforeinstallprompt event
+        if ('BeforeInstallPromptEvent' in window) {
+          window.addEventListener('beforeinstallprompt', function (event) {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            event.preventDefault();
+
+            // Stash the event so it can be triggered later
+            var deferredPrompt = event;
+
+            // Simulate the user clicking the install button
+            // You can replace this with your own UI for installation
+            deferredPrompt.prompt();
+
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then(function (choiceResult) {
+              if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+              } else {
+                console.log('User dismissed the A2HS prompt');
+              }
+
+              // Clear the deferred prompt variable
+              deferredPrompt = null;
+            });
+          });
+        }
       } else {
-        // Perform actions if the user clicks "No"
         console.log('User does not want to install the app.');
       }
     });
