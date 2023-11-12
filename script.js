@@ -13,7 +13,7 @@ const GET_API_KEY = () => {
 
 // if user click in ctrl + c then remove api key from local storage
 document.addEventListener("keydown", (e) => {
-    if (e.key == "c" && e.ctrlKey) {
+    if (e.key == "e" && e.ctrlKey) {
         localStorage.removeItem("api-key")
         location.reload()
     }
