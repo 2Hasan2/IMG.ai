@@ -1,4 +1,4 @@
-const CACHE_NAME = 'IMG-ai-cache-v2';
+const CACHE_NAME = 'IMG-AI-cache-V2.2.1';
 const urlsToCache = [
     '/',
     '/style.css',
