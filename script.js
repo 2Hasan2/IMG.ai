@@ -19,7 +19,7 @@ function Texting() {
     const options={
         prompt,
         style,
-        safe_filter: true,
+        safe_filter: false,
         samples
     }
     // handle empty option value use loop
