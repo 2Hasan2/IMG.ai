@@ -10,7 +10,7 @@ async function sendAndFetchResult(prompt) {
                 'content-type': 'application/json',
                 authorization: `Bearer ${API_KEY}`
             },
-            body: JSON.stringify({ safe_filter: true, prompt })
+            body: JSON.stringify({ safe_filter: false, prompt })
         };
 
         const sendResponse = await fetch(URL, sendOptions);
