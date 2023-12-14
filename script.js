@@ -9,11 +9,13 @@ function handleKeyPress(event) {
 
 function Texting() {
     const chatMessages = document.getElementById('chat-messages');
-    const prompt = document.getElementById('textCommand').value || 'Generate Image';
+    const prompt = document.getElementById('textCommand').value;
     const style = document.getElementById('styleSelect').value;
     const samples = +document.getElementById('numberInput').value;
+ if (prompt === '') {
+        return;
+    }
 
-    console.log(prompt, style, samples);
     const options={
         prompt,
         style,
@@ -60,7 +62,12 @@ function message(options, isUser) {
                     message.querySelector('.ai-message').appendChild(outputImage);
                 });
             })
-            .catch(error => console.error(error));
+            .catch(error=> {
+                console.log(error);
+                // convert it to string
+                const errorMessage = JSON.parse(error.message).result.errorMessage;
+                message.querySelector('.ai-message').innerHTML = errorMessage;
+            });
     };
 }
 
