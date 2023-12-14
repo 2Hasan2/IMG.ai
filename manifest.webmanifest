@@ -2,16 +2,12 @@
   "name": "AMG",
   "short_name": "AMG",
   "description": "image generator",
-  "start_url": "/index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "prefer_related_applications": false,
   "icons": [
-    {
-        "src": "./favicon.ico",
-        "type": "image/x-icon"
-    },
     {
         "src": "./AMG.png",
         "sizes": "192x192",
