@@ -3,6 +3,7 @@ const URL = 'https://api.monsterapi.ai/v1/generate/sdxl-base';
 
 // text to image
 async function sendAndFetchResult(options) {
+    let num=0;
     try {
         const sendOptions = {
             method: 'POST',
@@ -30,7 +31,7 @@ async function sendAndFetchResult(options) {
             const statusResult = await getStatusResponse.json();
 
             if (statusResult.status === 'IN_PROGRESS' || statusResult.status === 'IN_QUEUE') {
-                return new Promise(resolve => setTimeout(() => resolve(getResult(process_id)), 1000));
+                return new Promise(resolve => setTimeout(() => resolve(getResult(process_id)), 800));
             } else if (statusResult.status === 'COMPLETED') {
                 return statusResult.result.output;
             } else {
