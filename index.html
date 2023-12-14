@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Image Generator Chat</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
 <div id="chat-container">
@@ -15,94 +15,36 @@
         <input type="text" id="textCommand" placeholder="Type your command..." onkeydown="handleKeyPress(event)">
         <button id="generateBtn" onclick="Texting()">Generate</button>
         <input type="file" id="imageInput" accept="image/*" onchange="SendImg(event)">
-        <button id="attachImageBtn" onclick="document.getElementById('imageInput').click()">Attach Image</button>
+        <div id="select-container">
+            <select id="styleSelect">
+                <option value="">None</option>
+                <option value="anime">Anime</option>
+                <option value="enhance">Enhance</option>
+                <option value="photographic">Photographic</option>
+                <option value="digital-art">Digital Art</option>
+                <option value="comic-book">Comic Book</option>
+                <option value="fantasy-art">Fantasy Art</option>
+                <option value="analog-film">Analog Film</option>
+                <option value="neonpunk">Neonpunk</option>
+                <option value="isometric">Isometric</option>
+                <option value="lowpoly">Lowpoly</option>
+                <option value="origami">Origami</option>
+                <option value="line-art">Line Art</option>
+                <option value="craft-clay">Craft Clay</option>
+                <option value="3d-model">3D Model</option>
+                <option value="pixel-art">Pixel Art</option>
+                <option value="texture">Texture</option>
+                <option value="futuristic">Futuristic</option>
+                <option value="realism">Realism</option>
+                <option value="watercolor">Watercolor</option>
+                <option value="photorealistic">Photorealistic</option>
+            </select>
+            <input type="number" id="numberInput" min="1" max="4" value="1">
+        </div>
     </div>
 </div>
 
-<script>
-
-    function handleKeyPress(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            Texting();
-        }
-    }
-
-    function SendImg(event) {
-        const fileInput = event.target;
-        const files = fileInput.files;
-
-        if (files.length > 0) {
-            const chatMessages = document.getElementById('chat-messages');
-            const userMessage = document.createElement('div');
-            userMessage.className = 'message-container';
-            userMessage.innerHTML = `<div class="user-message card" onclick="copyToClipboard(this)">${'User: Image Attached'}</div>`;
-            chatMessages.appendChild(userMessage);
-
-            const outputImage = document.createElement('img');
-            outputImage.src = URL.createObjectURL(files[0]);
-            outputImage.alt = 'Attached Image';
-            userMessage.querySelector('.user-message').appendChild(outputImage);
-
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            fileInput.value = '';
-        }
-    }
-
-    function Texting() {
-        const chatMessages = document.getElementById('chat-messages');
-        const textCommand = document.getElementById('textCommand').value;
-
-        // Display user message
-        message(textCommand || 'Generate Image', true);
-        
-        // Display AI message
-        message(textCommand || "Generate Image", false);
-
-        document.getElementById('textCommand').value = '';
-
-        // Scroll to the bottom of the chat messages
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-
-    function message(content, isUser) {
-        const chatMessages = document.getElementById('chat-messages');
-        const message = document.createElement('div');
-        // append loader
-        message.className = 'message-container';
-        message.innerHTML = `<div class="${isUser ? 'user-message loading-img' : 'ai-message'} card" onclick="copyToClipboard(this)">${isUser ?content:'loading...'}</div>`;
-        chatMessages.appendChild(message);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        // if not user message, generate image
-        if (!isUser) {
-            sendAndFetchResult(content)
-                .then(result =>{
-                    result.forEach(Url=> {
-                        // delete loading text
-                        message.querySelector('.ai-message').innerHTML = '';
-                        const outputImage = document.createElement('img');
-                        outputImage.src = Url;
-                        outputImage.alt = 'Generated Image';
-                        message.querySelector('.ai-message').appendChild(outputImage);});
-            })
-                .catch(error => console.error(error));
-        };
-    }
-
-
-
-    function copyToClipboard(element) {
-        const textToCopy = element.innerText;
-        const tempInput = document.createElement('input');
-        document.body.appendChild(tempInput);
-        tempInput.value = textToCopy;
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
