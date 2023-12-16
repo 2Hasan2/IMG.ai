@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator Chat</title>
+
+    <!-- Favicon and Manifest -->
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="icon" href="AMG.png" type="image/png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Image Generator Chat</title>
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css">
-    <meta property="og:image" content="AMG.png"  integrity="">
-    <meta property="og:description" content='AMG.AI' />
-    <script src="index.js"></script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:image" content="AMG.png" integrity="">
+    <meta property="og:description" content="AMG.AI" />
+
+    <!-- JavaScript -->
+    <script src="index.js" defer></script>
 </head>
 <body>
 <div id="chat-container">
-    <div id="chat-header">AI Image Generator</div>
     <div id="chat-messages"></div>
     <div id="input-container">
         <input type="text" id="textCommand" placeholder="Type your command..." onkeydown="handleKeyPress(event)">
         <button id="generateBtn" onclick="Texting()">Generate</button>
-        <input type="file" id="imageInput" accept="image/*" onchange="SendImg(event)">
-        <div id="select-container">
             <select id="styleSelect">
                 <option value="">None</option>
                 <option value="anime">Anime</option>
@@ -44,8 +50,7 @@
                 <option value="watercolor">Watercolor</option>
                 <option value="photorealistic">Photorealistic</option>
             </select>
-            <input type="number" id="numberInput" min="1" max="4" value="1">
-        </div>
+        <input type="number" id="numberInput" min="1" max="20" value="1">
     </div>
 </div>
 
