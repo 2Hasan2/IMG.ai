@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #chat-container {
@@ -137,10 +138,11 @@ img {
 
 footer {
     position: absolute;
+    margin: auto;
     /*  center */
-    left: 50%;
-    bottom: 50%;
-    transform: translateX(-50%);
+    top: 10px;
+    display: flex;
+    flex-direction: column;
     opacity: 0.5;
 }
 
