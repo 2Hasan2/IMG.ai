@@ -11,7 +11,9 @@ function handleKeyPress(event) {
 function Texting() {
     const prompt = document.getElementById('textCommand').value;
     const style = document.getElementById('styleSelect').value;
+    const aspect_ratio = document.getElementById('aspect_ratio').value;
     let num_imgs = +document.getElementById('numberInput').value;
+    console.log(aspect_ratio);
     num_imgs = Math.min(num_imgs, 20);
     if (prompt === '') {
         return;
@@ -25,6 +27,7 @@ function Texting() {
             prompt,
             style,
             safe_filter: false,
+            aspect_ratio: aspect_ratio,
             samples: Math.min(chunkSize, num_imgs - i * chunkSize)
         };
 
