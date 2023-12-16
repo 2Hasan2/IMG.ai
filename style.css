@@ -15,9 +15,9 @@ body {
 }
 
 #chat-container {
-    flex: 0.8;
+    flex: 1;
     max-width: 1000px;
-    height: 90vh;
+    height: 100vh;
     background-color: #2f3136;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -130,4 +130,28 @@ img {
 }
 ::-webkit-scrollbar-corner {
     background-color: transparent;
+}
+
+/* footer */
+
+
+footer {
+    position: absolute;
+    opacity: 0.5;
+}
+
+footer .made{
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+footer .made a {
+    color: #7289da;
+    text-decoration: none;
+}
+
+footer:hover {
+    opacity: 1;
 }

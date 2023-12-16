@@ -11,7 +11,7 @@ function handleKeyPress(event) {
 function Texting() {
     const prompt = document.getElementById('textCommand').value;
     const style = document.getElementById('styleSelect').value;
-    const num_imgs = +document.getElementById('numberInput').value;
+    let num_imgs = +document.getElementById('numberInput').value;
     num_imgs = Math.min(num_imgs, 20);
     if (prompt === '') {
         return;
