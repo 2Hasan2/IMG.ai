@@ -137,6 +137,10 @@ img {
 
 footer {
     position: absolute;
+    /*  center */
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
     opacity: 0.5;
 }
 
