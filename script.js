@@ -68,6 +68,13 @@ async function aiMessage(options) {
             card.className = 'card';
             outputImage.src = url;
             outputImage.alt = 'Generated Image';
+            outputImage.addEventListener('dblclick', (e)=>openImg(e));
+            // add download button in card to download image
+            const downloadBtn = document.createElement('a');
+            downloadBtn.className = 'download-btn';
+            downloadBtn.addEventListener('click', (e) => {downloadImg(e, url)});
+            downloadBtn.innerText = '↓';
+            card.appendChild(downloadBtn);
             card.appendChild(outputImage);
             AI_MSG.appendChild(card);
         });
@@ -86,4 +93,13 @@ function copyToClipboard(element) {
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
+}
+
+// open image in new tab
+function openImg(e){
+    window.open(e.target.src);
+}
+function downloadImg(e ,url){
+    e.target.href = url;
+    e.target.download = 'image.jpg';
 }
