@@ -152,9 +152,8 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #40444b;
+    background-color: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: #7289da;
     border-radius: 4px;
