@@ -97,8 +97,25 @@ function copyToClipboard(element) {
 
 // open image in new tab
 function openImg(e){
-    window.open(e.target.src);
+    // move to fullScreen div
+    const fullScreen = document.getElementById('fullScreen');
+    // clone image
+    const img = e.target.cloneNode(true);
+    fullScreen.appendChild(img);
+    fullScreen.style.display = 'flex';
+    // add close 
+    fullScreen.addEventListener('click', closeImg);
 }
+
+// close image
+function closeImg(){
+    const fullScreen = document.getElementById('fullScreen');
+    fullScreen.style.display = 'none';
+    fullScreen.innerHTML = '';
+    // remove event listener
+    fullScreen.removeEventListener('click', closeImg);
+}
+
 function downloadImg(e ,url){
     e.target.href = url;
     e.target.download = 'image.jpg';
