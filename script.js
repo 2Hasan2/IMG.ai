@@ -8,6 +8,56 @@ function handleKeyPress(event) {
     }
 }
 
+
+let data = localStorage.getItem('data');
+data = JSON.parse(data);
+
+// if data is not exist create a new one
+if (!data) {
+    data = {
+        messages: []
+    };
+    localStorage.setItem('data', JSON.stringify(data));
+}
+
+// if massage is not empty show all messages
+const WannaLoad = confirm('Do you want to load the old generated images?)');
+if (data.messages.length > 0 && WannaLoad) {
+    data.messages.forEach(message => {
+        const USER_MSG = document.createElement('div');
+        USER_MSG.className = 'user-message';
+        USER_MSG.innerHTML = message.prompt;
+        USER_MSG.setAttribute('onclick', 'copyToClipboard(this)');
+        chatMessages.appendChild(USER_MSG);
+
+        const AI_MSG = document.createElement('div');
+        AI_MSG.className = 'ai-message ';
+        AI_MSG.innerHTML = '';
+        message.urls.forEach(url => {
+            const outputImage = document.createElement('img');
+            const card = document.createElement('div');
+            card.className = 'card';
+            outputImage.src = url;
+            outputImage.alt = 'Generated Image';
+            outputImage.addEventListener('dblclick', (e)=>openImg(e));
+            // add download button in card to download image
+            const downloadBtn = document.createElement('a');
+            downloadBtn.className = 'download-btn';
+            downloadBtn.addEventListener('click', (e) => {downloadImg(e, url)});
+            downloadBtn.innerText = '↓';
+            card.appendChild(downloadBtn);
+            card.appendChild(outputImage);
+            AI_MSG.appendChild(card);
+        });
+        chatMessages.appendChild(AI_MSG);
+    });
+}
+
+function saveData(message) {
+    data.messages.push(message);
+    localStorage.setItem('data', JSON.stringify(data));
+}
+
 function Texting() {
     const prompt = document.getElementById('textCommand').value;
     const style = document.getElementById('styleSelect').value;
@@ -59,6 +109,7 @@ async function aiMessage(options) {
     AI_MSG.className = 'ai-message ';
     AI_MSG.innerHTML = 'loading...';
     chatMessages.appendChild(AI_MSG);
+    let urls = []
 
     try {
         const result = await sendAndFetchResult(options);
@@ -78,6 +129,12 @@ async function aiMessage(options) {
             card.appendChild(downloadBtn);
             card.appendChild(outputImage);
             AI_MSG.appendChild(card);
+            urls.push(url);
+        });
+        // save data
+        saveData({
+            prompt: options.prompt,
+            urls: urls
         });
     } catch (error) {
         AI_MSG.innerHTML = error;
