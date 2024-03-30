@@ -58,5 +58,3 @@ async function sendAndFetchResult(options) {
         throw new Error(error);
     }
 }
-
-// pix to pix

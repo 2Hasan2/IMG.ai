@@ -62,7 +62,6 @@ async function aiMessage(options) {
 
     try {
         const result = await sendAndFetchResult(options);
-
         AI_MSG.innerHTML = '';
         result.forEach(url => {
             const outputImage = document.createElement('img');
@@ -81,9 +80,7 @@ async function aiMessage(options) {
             AI_MSG.appendChild(card);
         });
     } catch (error) {
-        console.error(error);
-        const errorMessage = error.message ? JSON.parse(error.message).result.errorMessage : 'An error occurred';
-        AI_MSG.innerHTML = errorMessage;
+        AI_MSG.innerHTML = error;
     }
 }
 
