@@ -24,7 +24,7 @@ try:
 except KeyError:
     print("Please set the API_KEY environment variable.")
     print("You can get the API key from https://aistudio.google.com/app/apikey")
-    print("export API_KEY=<your-api-key>")
+    print("export API_GEMINI=<your-api-key>")
     sys.exit(1)
 
 # Create a GenerativeModel instance
