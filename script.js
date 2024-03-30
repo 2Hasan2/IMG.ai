@@ -13,7 +13,6 @@ function Texting() {
     const style = document.getElementById('styleSelect').value;
     const aspect_ratio = document.getElementById('aspect_ratio').value;
     let num_imgs = +document.getElementById('numberInput').value;
-    console.log(aspect_ratio);
     num_imgs = Math.min(num_imgs, 20);
     if (prompt === '') {
         return;

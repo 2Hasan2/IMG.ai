@@ -13,7 +13,6 @@ const URL = 'https://api.monsterapi.ai/v1/generate/sdxl-base';
 // text to image
 async function sendAndFetchResult(options) {
     const API_KEY = API_KEYS[Time];
-    console.log(API_KEY);
     Time++;
     if (Time >= API_KEYS.length) {
         Time = 0;
