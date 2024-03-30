@@ -20,7 +20,7 @@ except ImportError:
 
 # Configure generative AI
 try:
-    genai.configure(api_key=os.environ['API_KEY'])
+    genai.configure(api_key=os.environ['API_GEMINI'])
 except KeyError:
     print("Please set the API_KEY environment variable.")
     print("You can get the API key from https://aistudio.google.com/app/apikey")
