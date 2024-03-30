@@ -53,13 +53,15 @@ body {
 /* ............. */
 
 
-input[type="text"] {
+textarea {
     flex: 1;
     padding: 8px;
     background-color: #484c52;
     color: #fff;
     border: none;
     border-radius: 4px;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 button {
